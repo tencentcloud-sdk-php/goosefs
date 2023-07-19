@@ -22,6 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getClusterId() 获取集群ID
  * @method void setClusterId(string $ClusterId) 设置集群ID
+ * @method string getRoleName() 获取角色名
+ * @method void setRoleName(string $RoleName) 设置角色名
  */
 class DescribeClusterRolesRequest extends AbstractModel
 {
@@ -31,7 +33,13 @@ class DescribeClusterRolesRequest extends AbstractModel
     public $ClusterId;
 
     /**
+     * @var string 角色名
+     */
+    public $RoleName;
+
+    /**
      * @param string $ClusterId 集群ID
+     * @param string $RoleName 角色名
      */
     function __construct()
     {
@@ -48,6 +56,10 @@ class DescribeClusterRolesRequest extends AbstractModel
         }
         if (array_key_exists("ClusterId",$param) and $param["ClusterId"] !== null) {
             $this->ClusterId = $param["ClusterId"];
+        }
+
+        if (array_key_exists("RoleName",$param) and $param["RoleName"] !== null) {
+            $this->RoleName = $param["RoleName"];
         }
     }
 }
