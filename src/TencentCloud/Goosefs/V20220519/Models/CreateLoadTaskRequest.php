@@ -18,28 +18,28 @@ namespace TencentCloud\Goosefs\V20220519\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeClusterRoles请求参数结构体
+ * CreateLoadTask请求参数结构体
  *
- * @method string getClusterId() 获取集群ID
- * @method void setClusterId(string $ClusterId) 设置集群ID
- * @method string getRoleName() 获取角色名
- * @method void setRoleName(string $RoleName) 设置角色名
+ * @method string getClusterId() 获取集群 ID
+ * @method void setClusterId(string $ClusterId) 设置集群 ID
+ * @method LoadTaskCreationAttrs getLoadTaskCreationAttrs() 获取创建预热任务参数
+ * @method void setLoadTaskCreationAttrs(LoadTaskCreationAttrs $LoadTaskCreationAttrs) 设置创建预热任务参数
  */
-class DescribeClusterRolesRequest extends AbstractModel
+class CreateLoadTaskRequest extends AbstractModel
 {
     /**
-     * @var string 集群ID
+     * @var string 集群 ID
      */
     public $ClusterId;
 
     /**
-     * @var string 角色名
+     * @var LoadTaskCreationAttrs 创建预热任务参数
      */
-    public $RoleName;
+    public $LoadTaskCreationAttrs;
 
     /**
-     * @param string $ClusterId 集群ID
-     * @param string $RoleName 角色名
+     * @param string $ClusterId 集群 ID
+     * @param LoadTaskCreationAttrs $LoadTaskCreationAttrs 创建预热任务参数
      */
     function __construct()
     {
@@ -58,8 +58,9 @@ class DescribeClusterRolesRequest extends AbstractModel
             $this->ClusterId = $param["ClusterId"];
         }
 
-        if (array_key_exists("RoleName",$param) and $param["RoleName"] !== null) {
-            $this->RoleName = $param["RoleName"];
+        if (array_key_exists("LoadTaskCreationAttrs",$param) and $param["LoadTaskCreationAttrs"] !== null) {
+            $this->LoadTaskCreationAttrs = new LoadTaskCreationAttrs();
+            $this->LoadTaskCreationAttrs->deserialize($param["LoadTaskCreationAttrs"]);
         }
     }
 }

@@ -18,19 +18,26 @@ namespace TencentCloud\Goosefs\V20220519\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateFileSystem返回参数结构体
+ * ListLoadTasks返回参数结构体
  *
- * @method string getFileSystemId() 获取创建成功返回的文件系统ID：
- * @method void setFileSystemId(string $FileSystemId) 设置创建成功返回的文件系统ID：
+ * @method array getLoadTaskList() 获取预热任务参数
+ * @method void setLoadTaskList(array $LoadTaskList) 设置预热任务参数
+ * @method integer getTotalCount() 获取任务数总量
+ * @method void setTotalCount(integer $TotalCount) 设置任务数总量
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class CreateFileSystemResponse extends AbstractModel
+class ListLoadTasksResponse extends AbstractModel
 {
     /**
-     * @var string 创建成功返回的文件系统ID：
+     * @var array 预热任务参数
      */
-    public $FileSystemId;
+    public $LoadTaskList;
+
+    /**
+     * @var integer 任务数总量
+     */
+    public $TotalCount;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +45,8 @@ class CreateFileSystemResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param string $FileSystemId 创建成功返回的文件系统ID：
+     * @param array $LoadTaskList 预热任务参数
+     * @param integer $TotalCount 任务数总量
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,8 +62,17 @@ class CreateFileSystemResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("FileSystemId",$param) and $param["FileSystemId"] !== null) {
-            $this->FileSystemId = $param["FileSystemId"];
+        if (array_key_exists("LoadTaskList",$param) and $param["LoadTaskList"] !== null) {
+            $this->LoadTaskList = [];
+            foreach ($param["LoadTaskList"] as $key => $value){
+                $obj = new LoadTaskAttrs();
+                $obj->deserialize($value);
+                array_push($this->LoadTaskList, $obj);
+            }
+        }
+
+        if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
+            $this->TotalCount = $param["TotalCount"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

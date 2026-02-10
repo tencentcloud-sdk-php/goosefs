@@ -18,19 +18,19 @@ namespace TencentCloud\Goosefs\V20220519\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeClusterRoles返回参数结构体
+ * CreateLoadTask返回参数结构体
  *
- * @method array getClusterRoles() 获取集群角色
- * @method void setClusterRoles(array $ClusterRoles) 设置集群角色
+ * @method string getTaskId() 获取预热任务 ID
+ * @method void setTaskId(string $TaskId) 设置预热任务 ID
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeClusterRolesResponse extends AbstractModel
+class CreateLoadTaskResponse extends AbstractModel
 {
     /**
-     * @var array 集群角色
+     * @var string 预热任务 ID
      */
-    public $ClusterRoles;
+    public $TaskId;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +38,7 @@ class DescribeClusterRolesResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $ClusterRoles 集群角色
+     * @param string $TaskId 预热任务 ID
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,13 +54,8 @@ class DescribeClusterRolesResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ClusterRoles",$param) and $param["ClusterRoles"] !== null) {
-            $this->ClusterRoles = [];
-            foreach ($param["ClusterRoles"] as $key => $value){
-                $obj = new ClusterRole();
-                $obj->deserialize($value);
-                array_push($this->ClusterRoles, $obj);
-            }
+        if (array_key_exists("TaskId",$param) and $param["TaskId"] !== null) {
+            $this->TaskId = $param["TaskId"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

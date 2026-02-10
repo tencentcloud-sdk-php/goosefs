@@ -18,19 +18,19 @@ namespace TencentCloud\Goosefs\V20220519\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateFileSystem返回参数结构体
+ * DescribeLoadTask返回参数结构体
  *
- * @method string getFileSystemId() 获取创建成功返回的文件系统ID：
- * @method void setFileSystemId(string $FileSystemId) 设置创建成功返回的文件系统ID：
+ * @method LoadTaskAttrs getLoadTaskAttrs() 获取预热任务参数
+ * @method void setLoadTaskAttrs(LoadTaskAttrs $LoadTaskAttrs) 设置预热任务参数
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class CreateFileSystemResponse extends AbstractModel
+class DescribeLoadTaskResponse extends AbstractModel
 {
     /**
-     * @var string 创建成功返回的文件系统ID：
+     * @var LoadTaskAttrs 预热任务参数
      */
-    public $FileSystemId;
+    public $LoadTaskAttrs;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +38,7 @@ class CreateFileSystemResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param string $FileSystemId 创建成功返回的文件系统ID：
+     * @param LoadTaskAttrs $LoadTaskAttrs 预热任务参数
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,8 +54,9 @@ class CreateFileSystemResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("FileSystemId",$param) and $param["FileSystemId"] !== null) {
-            $this->FileSystemId = $param["FileSystemId"];
+        if (array_key_exists("LoadTaskAttrs",$param) and $param["LoadTaskAttrs"] !== null) {
+            $this->LoadTaskAttrs = new LoadTaskAttrs();
+            $this->LoadTaskAttrs->deserialize($param["LoadTaskAttrs"]);
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
